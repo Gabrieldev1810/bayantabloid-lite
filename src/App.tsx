@@ -16,10 +16,12 @@ import Announcements from "./pages/Announcements";
 import Transparency from "./pages/Transparency";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-// Admin pages
 import Login from "./pages/admin/Login";
 import Dashboard from "./pages/admin/Dashboard";
 import AdminOfficials from "./pages/admin/AdminOfficials";
+import AdminDocuments from "./pages/admin/AdminDocuments";
+import AdminHearings from "./pages/admin/AdminHearings";
+import AdminAnnouncements from "./pages/admin/AdminAnnouncements";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +49,9 @@ const App = () => (
             <Route path="/admin/login" element={<Login />} />
             <Route path="/admin" element={<AdminLayout><Dashboard /></AdminLayout>} />
             <Route path="/admin/officials" element={<AdminLayout><AdminOfficials /></AdminLayout>} />
+            <Route path="/admin/documents" element={<AdminLayout><AdminDocuments /></AdminLayout>} />
+            <Route path="/admin/hearings" element={<AdminLayout><AdminHearings /></AdminLayout>} />
+            <Route path="/admin/announcements" element={<AdminLayout><AdminAnnouncements /></AdminLayout>} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<Layout><NotFound /></Layout>} />

@@ -93,7 +93,10 @@ const Login = () => {
             </Button>
           </form>
           <div className="mt-4 text-sm text-muted-foreground text-center">
-            Demo credentials: admin@sanggunian.gov / admin123
+            <div className="space-y-1">
+              <div>Admin: admin@sanggunian.gov / admin123</div>
+              <div>Council: council@sanggunian.gov / council123</div>
+            </div>
           </div>
         </CardContent>
       </Card>

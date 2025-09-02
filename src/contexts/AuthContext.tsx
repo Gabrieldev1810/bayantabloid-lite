@@ -3,7 +3,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 interface User {
   id: string;
   email: string;
-  role: 'admin' | 'editor' | 'contributor';
+  role: 'admin' | 'council_member' | 'editor' | 'contributor';
   name: string;
 }
 
@@ -48,6 +48,16 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         email: 'admin@sanggunian.gov',
         role: 'admin',
         name: 'System Administrator'
+      };
+      setUser(mockUser);
+      localStorage.setItem('cms_user', JSON.stringify(mockUser));
+      return true;
+    } else if (email === 'council@sanggunian.gov' && password === 'council123') {
+      const mockUser: User = {
+        id: '2',
+        email: 'council@sanggunian.gov',
+        role: 'council_member',
+        name: 'Council Member'
       };
       setUser(mockUser);
       localStorage.setItem('cms_user', JSON.stringify(mockUser));
