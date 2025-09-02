@@ -17,6 +17,7 @@ const Navigation = () => {
     { path: "/announcements", label: "News", icon: MessageSquare },
     { path: "/transparency", label: "Transparency", icon: FileText },
     { path: "/contact", label: "Contact", icon: Phone },
+    { path: "/admin/login", label: "Admin", icon: Building },
   ];
 
   const isActivePath = (path: string) => {

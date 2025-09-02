@@ -3,7 +3,9 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
 import Layout from "./components/Layout";
+import AdminLayout from "./components/admin/AdminLayout";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Officials from "./pages/Officials";
@@ -14,33 +16,44 @@ import Announcements from "./pages/Announcements";
 import Transparency from "./pages/Transparency";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+// Admin pages
+import Login from "./pages/admin/Login";
+import Dashboard from "./pages/admin/Dashboard";
+import AdminOfficials from "./pages/admin/AdminOfficials";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Layout>
+    <AuthProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/officials" element={<Officials />} />
-            <Route path="/committees" element={<Committees />} />
-            <Route path="/documents" element={<Documents />} />
-            <Route path="/documents/:category" element={<Documents />} />
-            <Route path="/hearings" element={<Hearings />} />
-            <Route path="/announcements" element={<Announcements />} />
-            <Route path="/transparency" element={<Transparency />} />
-            <Route path="/contact" element={<Contact />} />
+            {/* Public Routes */}
+            <Route path="/" element={<Layout><Index /></Layout>} />
+            <Route path="/about" element={<Layout><About /></Layout>} />
+            <Route path="/officials" element={<Layout><Officials /></Layout>} />
+            <Route path="/committees" element={<Layout><Committees /></Layout>} />
+            <Route path="/documents" element={<Layout><Documents /></Layout>} />
+            <Route path="/documents/:category" element={<Layout><Documents /></Layout>} />
+            <Route path="/hearings" element={<Layout><Hearings /></Layout>} />
+            <Route path="/announcements" element={<Layout><Announcements /></Layout>} />
+            <Route path="/transparency" element={<Layout><Transparency /></Layout>} />
+            <Route path="/contact" element={<Layout><Contact /></Layout>} />
+            
+            {/* Admin Routes */}
+            <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin" element={<AdminLayout><Dashboard /></AdminLayout>} />
+            <Route path="/admin/officials" element={<AdminLayout><AdminOfficials /></AdminLayout>} />
+            
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<Layout><NotFound /></Layout>} />
           </Routes>
-        </Layout>
-      </BrowserRouter>
-    </TooltipProvider>
+        </BrowserRouter>
+      </TooltipProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 
