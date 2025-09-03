@@ -133,12 +133,13 @@
 @layer components {
   /* Government-specific component styles */
   .government-card {
-    @apply bg-card text-card-foreground rounded-lg border border-border;
+    @apply bg-card text-card-foreground rounded-lg border border-border transition-all duration-200;
     box-shadow: var(--shadow-card);
   }
 
   .government-card:hover {
     box-shadow: var(--shadow-elevated);
+    @apply border-primary/20;
   }
 
   .government-hero {
@@ -158,5 +159,94 @@
   .government-button-primary:hover {
     transform: translateY(-1px);
     box-shadow: var(--shadow-elevated);
+  }
+
+  /* Responsive utilities */
+  .container-responsive {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .grid-responsive {
+    @apply grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 gap-6 lg:grid-cols-2;
+  }
+
+  .flex-responsive {
+    @apply flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  .text-responsive {
+    @apply text-sm sm:text-base;
+  }
+
+  /* Form improvements */
+  .form-grid {
+    @apply grid grid-cols-1 gap-4 sm:grid-cols-2;
+  }
+
+  .form-full {
+    @apply col-span-1 sm:col-span-2;
+  }
+
+  /* Button improvements */
+  .btn-responsive {
+    @apply w-full sm:w-auto;
+  }
+
+  /* Card improvements */
+  .card-grid {
+    @apply grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .card-list {
+    @apply space-y-4;
+  }
+
+  /* Navigation improvements */
+  .nav-mobile {
+    @apply hidden sm:flex;
+  }
+
+  .nav-desktop {
+    @apply flex sm:hidden;
+  }
+
+  /* Typography improvements */
+  .heading-responsive {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold;
+  }
+
+  .subheading-responsive {
+    @apply text-lg sm:text-xl lg:text-2xl font-semibold;
+  }
+
+  /* Status indicators */
+  .status-active {
+    @apply bg-success/10 text-success border-success/20;
+  }
+
+  .status-inactive {
+    @apply bg-muted text-muted-foreground border-border;
+  }
+
+  .status-pending {
+    @apply bg-warning/10 text-warning border-warning/20;
+  }
+
+  .status-draft {
+    @apply bg-muted text-muted-foreground border-border;
+  }
+
+  /* Loading states */
+  .loading-shimmer {
+    @apply bg-gradient-to-r from-muted via-muted/50 to-muted bg-[length:200%_100%] animate-pulse;
+  }
+
+  /* Focus styles for accessibility */
+  .focus-government {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
   }
 }

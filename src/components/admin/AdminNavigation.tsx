@@ -48,7 +48,7 @@ const AdminNavigation = () => {
             </div>
           </Link>
 
-          {/* Navigation Links */}
+          {/* Navigation Links - Desktop */}
           <div className="hidden lg:flex items-center space-x-1">
             {navigationItems.map((item) => {
               const Icon = item.icon;
@@ -56,9 +56,9 @@ const AdminNavigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                     isActivePath(item.path)
-                      ? "bg-primary text-primary-foreground"
+                      ? "bg-primary text-primary-foreground shadow-sm"
                       : "text-foreground hover:bg-accent hover:text-accent-foreground"
                   }`}
                 >
@@ -67,6 +67,11 @@ const AdminNavigation = () => {
                 </Link>
               );
             })}
+          </div>
+
+          {/* Navigation Links - Mobile Dropdown */}
+          <div className="lg:hidden">
+            {/* Mobile menu implementation can be added here */}
           </div>
 
           {/* User Menu */}

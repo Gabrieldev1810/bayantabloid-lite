@@ -178,56 +178,60 @@ const Index = () => {
             
             {/* Recent Documents */}
             <div className="lg:col-span-2">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-foreground">Recent Documents</h2>
-                <Link to="/documents">
-                  <Button variant="outline" size="sm">
-                    View All <ChevronRight className="w-4 h-4 ml-1" />
-                  </Button>
-                </Link>
-              </div>
-              
-              <div className="space-y-4">
-                {recentDocuments.map((doc) => (
-                  <Card key={doc.id} className="government-card">
-                    <CardContent className="p-6">
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center space-x-2 mb-2">
-                            <Badge variant={doc.type === 'Ordinance' ? 'default' : 'secondary'}>
-                              {doc.type}
-                            </Badge>
-                            <Badge variant="outline" className="text-xs">
-                              {doc.status}
-                            </Badge>
-                          </div>
-                          <h3 className="text-lg font-semibold text-foreground mb-2">
-                            {doc.title}
-                          </h3>
-                          <p className="text-muted-foreground mb-3">
-                            {doc.description}
-                          </p>
-                          <div className="flex items-center text-sm text-muted-foreground">
-                            <Clock className="w-4 h-4 mr-1" />
-                            {new Date(doc.date).toLocaleDateString('en-US', {
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric'
-                            })}
-                          </div>
-                        </div>
-                        <div className="flex space-x-2 ml-4">
-                          <Button variant="ghost" size="sm">
-                            <Eye className="w-4 h-4" />
-                          </Button>
-                          <Button variant="ghost" size="sm">
-                            <Download className="w-4 h-4" />
-                          </Button>
-                        </div>
+          <div className="flex-responsive mb-6">
+            <h2 className="subheading-responsive text-foreground">Recent Documents</h2>
+            <Link to="/documents">
+              <Button variant="outline" size="sm" className="btn-responsive">
+                View All <ChevronRight className="w-4 h-4 ml-1" />
+              </Button>
+            </Link>
+          </div>
+          
+          <div className="card-list">
+            {recentDocuments.map((doc) => (
+              <Card key={doc.id} className="government-card">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <Badge variant={doc.type === 'Ordinance' ? 'default' : 'secondary'}>
+                          {doc.type}
+                        </Badge>
+                        <Badge variant="outline" className="text-xs">
+                          {doc.status}
+                        </Badge>
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
+                       <h3 className="text-lg font-semibold text-foreground mb-2 break-words">
+                         {doc.title}
+                       </h3>
+                      <p className="text-responsive text-muted-foreground mb-3">
+                        {doc.description}
+                      </p>
+                      <div className="flex items-center text-sm text-muted-foreground">
+                        <Clock className="w-4 h-4 mr-1 flex-shrink-0" />
+                        <span className="truncate">
+                          {new Date(doc.date).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                          })}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex space-x-2 flex-shrink-0">
+                      <Button variant="ghost" size="sm" className="focus-government">
+                        <Eye className="w-4 h-4" />
+                        <span className="sr-only">View document</span>
+                      </Button>
+                      <Button variant="ghost" size="sm" className="focus-government">
+                        <Download className="w-4 h-4" />
+                        <span className="sr-only">Download document</span>
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
               </div>
             </div>
 
@@ -236,11 +240,12 @@ const Index = () => {
               
               {/* Upcoming Hearings */}
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-foreground">Upcoming Hearings</h3>
+                 <div className="flex-responsive mb-4">
+                  <h3 className="text-xl font-semibold text-foreground">Upcoming Hearings</h3>
                   <Link to="/hearings">
-                    <Button variant="ghost" size="sm">
+                    <Button variant="ghost" size="sm" className="focus-government">
                       <ChevronRight className="w-4 h-4" />
+                      <span className="sr-only">View all hearings</span>
                     </Button>
                   </Link>
                 </div>
@@ -249,17 +254,19 @@ const Index = () => {
                   {upcomingHearings.map((hearing) => (
                     <Card key={hearing.id} className="government-card">
                       <CardContent className="p-4">
-                        <h4 className="font-semibold text-foreground mb-2">
+                        <h4 className="font-semibold text-foreground mb-2 break-words">
                           {hearing.title}
                         </h4>
                         <div className="space-y-1 text-sm text-muted-foreground">
                           <div className="flex items-center">
-                            <Calendar className="w-4 h-4 mr-2" />
-                            {new Date(hearing.date).toLocaleDateString()} at {hearing.time}
+                            <Calendar className="w-4 h-4 mr-2 flex-shrink-0" />
+                            <span className="truncate">
+                              {new Date(hearing.date).toLocaleDateString()} at {hearing.time}
+                            </span>
                           </div>
                           <div className="flex items-center">
-                            <Users className="w-4 h-4 mr-2" />
-                            {hearing.venue}
+                            <Users className="w-4 h-4 mr-2 flex-shrink-0" />
+                            <span className="truncate">{hearing.venue}</span>
                           </div>
                         </div>
                       </CardContent>
@@ -270,11 +277,12 @@ const Index = () => {
 
               {/* Latest Announcements */}
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-foreground">Latest News</h3>
+                <div className="flex-responsive mb-4">
+                  <h3 className="text-xl font-semibold text-foreground">Latest News</h3>
                   <Link to="/announcements">
-                    <Button variant="ghost" size="sm">
+                    <Button variant="ghost" size="sm" className="focus-government">
                       <ChevronRight className="w-4 h-4" />
+                      <span className="sr-only">View all announcements</span>
                     </Button>
                   </Link>
                 </div>
@@ -286,7 +294,7 @@ const Index = () => {
                         <Badge variant="outline" className="mb-2 text-xs">
                           {announcement.category}
                         </Badge>
-                        <h4 className="font-semibold text-foreground mb-2">
+                        <h4 className="font-semibold text-foreground mb-2 break-words">
                           {announcement.title}
                         </h4>
                         <p className="text-sm text-muted-foreground mb-2 line-clamp-2">
@@ -308,19 +316,19 @@ const Index = () => {
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <Link to="/documents" className="block">
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button variant="outline" className="w-full justify-start focus-government">
                       <FileText className="w-4 h-4 mr-2" />
                       Browse Documents
                     </Button>
                   </Link>
                   <Link to="/hearings" className="block">
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button variant="outline" className="w-full justify-start focus-government">
                       <Calendar className="w-4 h-4 mr-2" />
                       View Hearings
                     </Button>
                   </Link>
                   <Link to="/contact" className="block">
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button variant="outline" className="w-full justify-start focus-government">
                       <Bell className="w-4 h-4 mr-2" />
                       Contact Us
                     </Button>

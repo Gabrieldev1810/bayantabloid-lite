@@ -49,9 +49,9 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 focus-government ${
                     isActivePath(item.path)
-                      ? "bg-primary text-primary-foreground"
+                      ? "bg-primary text-primary-foreground shadow-sm"
                       : "text-foreground hover:bg-accent hover:text-accent-foreground"
                   }`}
                 >
@@ -77,8 +77,8 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 border-t border-border">
+          <div className="lg:hidden bg-card border-t border-border">
+            <div className="px-2 pt-2 pb-3 space-y-1">
               {navigationItems.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -86,9 +86,9 @@ const Navigation = () => {
                     key={item.path}
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                    className={`flex items-center space-x-3 px-3 py-3 rounded-md text-base font-medium transition-all duration-200 focus-government ${
                       isActivePath(item.path)
-                        ? "bg-primary text-primary-foreground"
+                        ? "bg-primary text-primary-foreground shadow-sm"
                         : "text-foreground hover:bg-accent hover:text-accent-foreground"
                     }`}
                   >

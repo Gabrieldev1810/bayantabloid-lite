@@ -22,6 +22,8 @@ import AdminOfficials from "./pages/admin/AdminOfficials";
 import AdminDocuments from "./pages/admin/AdminDocuments";
 import AdminHearings from "./pages/admin/AdminHearings";
 import AdminAnnouncements from "./pages/admin/AdminAnnouncements";
+import AdminCommittees from "./pages/admin/AdminCommittees";
+import AdminSettings from "./pages/admin/AdminSettings";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +54,8 @@ const App = () => (
             <Route path="/admin/documents" element={<AdminLayout><AdminDocuments /></AdminLayout>} />
             <Route path="/admin/hearings" element={<AdminLayout><AdminHearings /></AdminLayout>} />
             <Route path="/admin/announcements" element={<AdminLayout><AdminAnnouncements /></AdminLayout>} />
+            <Route path="/admin/committees" element={<AdminLayout><AdminCommittees /></AdminLayout>} />
+            <Route path="/admin/settings" element={<AdminLayout><AdminSettings /></AdminLayout>} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<Layout><NotFound /></Layout>} />
