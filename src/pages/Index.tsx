@@ -81,6 +81,96 @@ const Index = () => {
     <div>
       <Hero />
       
+      {/* Top Officials Section */}
+      <div className="py-16 bg-muted/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground mb-4">Top Officials</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Meet the dedicated leaders serving our municipality with integrity and commitment to public service.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Mayor */}
+            <Card className="government-card text-center">
+              <CardContent className="p-6">
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-1">Hon. Maria Santos</h3>
+                <p className="text-primary font-medium mb-2">Municipal Mayor</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Leading with vision and dedication to serve our community's needs.
+                </p>
+                <Link to="/officials">
+                  <Button variant="outline" size="sm">View Profile</Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Vice Mayor */}
+            <Card className="government-card text-center">
+              <CardContent className="p-6">
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-1">Hon. Jose Garcia</h3>
+                <p className="text-primary font-medium mb-2">Vice Mayor</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Presiding officer of the Sangguniang Bayan and legislative leader.
+                </p>
+                <Link to="/officials">
+                  <Button variant="outline" size="sm">View Profile</Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* SB Member */}
+            <Card className="government-card text-center">
+              <CardContent className="p-6">
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-1">Hon. Juan dela Cruz</h3>
+                <p className="text-primary font-medium mb-2">SB Member</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Chair, Committee on Finance & Appropriations.
+                </p>
+                <Link to="/officials">
+                  <Button variant="outline" size="sm">View Profile</Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* SB Member */}
+            <Card className="government-card text-center">
+              <CardContent className="p-6">
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-1">Hon. Anna Reyes</h3>
+                <p className="text-primary font-medium mb-2">SB Member</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Chair, Committee on Health & Social Services.
+                </p>
+                <Link to="/officials">
+                  <Button variant="outline" size="sm">View Profile</Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div className="text-center mt-8">
+            <Link to="/officials">
+              <Button variant="default">
+                View All Officials <ChevronRight className="w-4 h-4 ml-1" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content Sections */}
       <div className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
