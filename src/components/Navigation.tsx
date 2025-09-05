@@ -31,13 +31,13 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo and Title */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-primary-foreground font-bold">
+          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-primary-foreground font-bold text-sm">
               SB
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-lg font-bold text-foreground">Sangguniang Bayan</h1>
-              <p className="text-xs text-muted-foreground">Municipal Council</p>
+              <h1 className="text-lg font-semibold text-foreground leading-tight">Sangguniang Bayan</h1>
+              <p className="text-xs text-muted-foreground leading-tight">Municipal Council</p>
             </div>
           </Link>
 
